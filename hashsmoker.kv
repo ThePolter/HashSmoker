@@ -1,0 +1,84 @@
+BoxLayout:
+	spacing: 1
+	orientation: "vertical"
+	thehash: thehash
+	thewordlist: thewordlist
+	showpass: showpass
+	Label:
+		id: showpass
+		text: "password"
+		canvas.before:
+        	Color:
+            	rgba: .5, .5, .5, 1
+            Line:
+            	width: 2
+            	rectangle: self.x, self.y, self.width, self.height
+		size_hint: 1, None
+		height: root.height / 2
+	BoxLayout:
+		size_hint: 1, None
+		height: 30
+		Label:
+			text: "hash"
+			canvas.before:
+        		Color:
+            		rgba: .5, .5, .5, 1
+            	Line:
+            		width: 2
+            		rectangle: self.x, self.y, self.width, self.height
+		Label:
+			text: "wordlist"
+			canvas.before:
+        		Color:
+            		rgba: .5, .5, .5, 1
+            	Line:
+            		width: 2
+            		rectangle: self.x, self.y, self.width, self.height
+	BoxLayout:
+		size_hint: 1, None
+		height: 30
+		TextInput:
+			id: thehash
+		Button:
+			text: "from clipboard"
+			on_press: app.testclipfunc("thehash")
+		TextInput:
+			id: thewordlist
+		Button:
+			text: "from clipboard"
+			on_press: app.testclipfunc("thewordlist")
+	Label:
+		text: "hash type"
+		size_hint: 1, None
+		height: 30
+		canvas.before:
+        	Color:
+            	rgba: .5, .5, .5, 1
+            Line:
+            	width: 2
+            	rectangle: self.x, self.y, self.width, self.height
+	GridLayout:
+		rows: 2
+		Button:
+			text: "md5"
+			on_press: app.thehashtype=self.text
+		Button:
+			text: "sha1"
+			on_press: app.thehashtype=self.text
+		Button:
+			text: "sha224"
+			on_press: app.thehashtype=self.text
+		Button:
+			text: "sha256"
+			on_press: app.thehashtype=self.text
+		Button:
+			text: "sha384"
+			on_press: app.thehashtype=self.text
+		Button:
+			text: "sha512"
+			on_press: app.thehashtype=self.text
+
+	BoxLayout:
+		Button:
+			text:"crack hash"
+			on_press: app.crack(app.thehashtype, thehash.text, thewordlist.text)
