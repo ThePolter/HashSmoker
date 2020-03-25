@@ -48,6 +48,7 @@ BoxLayout:
 			text: "from clipboard"
 			on_press: app.testclipfunc("thewordlist")
 	Label:
+		id: hash_t
 		text: "hash type"
 		size_hint: 1, None
 		height: 30
@@ -62,21 +63,27 @@ BoxLayout:
 		Button:
 			text: "md5"
 			on_press: app.thehashtype=self.text
+			on_press: hash_t.text = "hash type: " + self.text
 		Button:
 			text: "sha1"
 			on_press: app.thehashtype=self.text
+			on_press: hash_t.text = "hash type: " + self.text
 		Button:
 			text: "sha224"
 			on_press: app.thehashtype=self.text
+			on_press: hash_t.text = "hash type: " + self.text
 		Button:
 			text: "sha256"
 			on_press: app.thehashtype=self.text
+			on_press: hash_t.text = "hash type: " + self.text
 		Button:
 			text: "sha384"
 			on_press: app.thehashtype=self.text
+			on_press: hash_t.text = "hash type: " + self.text
 		Button:
 			text: "sha512"
 			on_press: app.thehashtype=self.text
+			on_press: hash_t.text = "hash type: " + self.text
 
 	BoxLayout:
 		Button:
